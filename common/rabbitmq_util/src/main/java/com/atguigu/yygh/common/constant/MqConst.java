@@ -27,5 +27,12 @@ public class MqConst {
     //队列
     public static final String QUEUE_TASK_8 = "queue.task.8";
 
+    /**
+     * 号源更新
+     */
+    public static final String EXCHANGE_Number_Source = "exchange.number_source";
+    public static final String ROUTING_Number_Source = "task.number_source";
+    //队列
+    public static final String QUEUE_Number_Source = "queue.number_source";
 }
 

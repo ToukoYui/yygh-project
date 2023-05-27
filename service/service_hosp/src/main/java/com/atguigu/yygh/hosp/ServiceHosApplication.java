@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
 @EnableDiscoveryClient //将该服务注册在nacos中心
-@EnableFeignClients(basePackages = "com.atguigu")
+@EnableFeignClients(basePackages = "com.atguigu")//为了能够扫描含有@FeginCient注解的类
 @ComponentScan(basePackages = "com.atguigu") //为了能够扫描到其他模块的包
 //@CrossOrigin
 public class ServiceHosApplication {

@@ -141,14 +141,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderInfo> implem
             Integer availableNumber = jsonObject.getInteger("availableNumber");
             //发送mq信息更新号源和短信通知
             //todo mqrabbit
-            //发送mq信息更新号源和短信通知
             //发送mq信息更新号源
             OrderMqVo orderMqVo = new OrderMqVo();
             orderMqVo.setScheduleId(scheduleId);
             orderMqVo.setReservedNumber(reservedNumber);
             orderMqVo.setAvailableNumber(availableNumber);
-
-            //短信提示
+            rabbitService.sendMessage(MqConst.EXCHANGE_DIRECT_ORDER,MqConst.ROUTING_ORDER,orderMqVo);
+            //发送mq信息短信通知
             MsmVo msmVo = new MsmVo();
             msmVo.setPhone(orderInfo.getPatientPhone());
             msmVo.setTemplateCode("SMS_154950909");

@@ -18,7 +18,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Random;
-// vscode部分的前端
+/**
+ * @Author: ToukoYui
+ * @Date: 2023/5/1 20:01
+ * @Description: 内部统筹的医院设置系统
+ **/
 @Api(tags = "医院设置管理")
 @RestController
 @RequestMapping("/admin/hosp/hospitalSet")

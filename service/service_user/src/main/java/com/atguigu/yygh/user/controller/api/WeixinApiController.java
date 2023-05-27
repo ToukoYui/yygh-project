@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.time.LocalDate;
@@ -69,12 +70,10 @@ public class WeixinApiController {
                 code);
 
         String accessTokenInfo = "";
-        try {
-            //使用httpclient请求地址,获取access_token和open_id
-            accessTokenInfo = HttpClientUtils.get(accessTokenUrl);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        //使用httpclient请求地址,获取access_token和open_id
+        accessTokenInfo = HttpClientUtils.get(accessTokenUrl);
+
         JSONObject jsonObject = JSONObject.parseObject(accessTokenInfo);
         String accessToken = jsonObject.getString("access_token");
         String openId = jsonObject.getString("openid");
