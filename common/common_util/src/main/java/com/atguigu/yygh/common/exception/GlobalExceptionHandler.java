@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  **/
 @RestControllerAdvice   //一种对所有controller增强的组件，能够根据条件拦截下来
 public class GlobalExceptionHandler {
+
     @ExceptionHandler(Exception.class)  //出现异常就拦截下来，走自定义的方法
     public Result error(Exception e) {
         e.printStackTrace();
